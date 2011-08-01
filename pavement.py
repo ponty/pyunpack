@@ -35,7 +35,7 @@ def read_project_version(py=None, where='.', exclude=['bootstrap', 'pavement', '
 
 NAME = 'pyunpack'
 URL = 'https://github.com/ponty/pyunpack'
-DESCRIPTION = 'unpack archives'
+DESCRIPTION = 'unpack archive files'
 VERSION = read_project_version()
 
 
