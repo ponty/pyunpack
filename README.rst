@@ -3,26 +3,38 @@ unpack archive files
 Links:
  * home: https://github.com/ponty/pyunpack
  * documentation: http://ponty.github.com/pyunpack
- 
+  
 Features:
+ - unpack archive files without password
+ - very simple interface
  - backends: 
     * patool_: optional, can handle a lot of formats using different programs 
     * zipfile_: included in Python
- - command line interface
+ - command line interface and library
  
 Known problems:
  - Python 3 is not supported
  - tested only on linux
+
+Background
+-----------
+
+Patool_ is very good at unpacking a lot of archive formats,
+but it can not be used as a python library.
+pyunpack is a workaround: patool_ is called using its command line interface.
+If Patool_ is not installed then only zip format can be unpacked
+using the internal python zipfile_ library.
+Patool_ should be converted into a library in the future.
  
 Basic usage
 ============
 
     >>> from pyunpack import Archive
-    >>> Archive('a.zip').extractall('.')
+    >>> Archive('a.zip').extractall('/path/to')
 
 or on console::
 
-    python -m pyunpack.cli a.zip .
+    python -m pyunpack.cli a.zip /path/to
 
 
 Similar projects
