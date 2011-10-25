@@ -49,12 +49,15 @@ classifiers = [
 
 install_requires = [
     'setuptools',
-#    'patool', # optional
+    'patool', # optional
     'easyprocess',
     'entrypoint2',
     'path.py',    
     
     ]
+dependency_links = [
+        'http://sourceforge.net/projects/patool/files/0.13/patool-0.13.tar.gz/download#egg=patool-0.13',
+        ]
 
 setup(
     name=NAME,
@@ -72,6 +75,7 @@ setup(
     test_suite='nose.collector',
     zip_safe=False,
     install_requires=install_requires,
+    dependency_links=dependency_links,
     )
 
 

@@ -5,7 +5,7 @@ import os
 import sys
 import zipfile
 
-__version__ = '0.0.0'
+__version__ = '0.0.1'
 
 log = logging.getLogger(__name__)
 #log=logging

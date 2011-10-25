@@ -7,10 +7,18 @@ Links:
 Features:
  - unpack archive files without password
  - very simple interface
- - backends: 
-    * patool_: optional, can handle a lot of formats using different programs 
-    * zipfile_: included in Python
  - command line interface and library
+ - backends: 
+    * zipfile_: included in Python
+    * patool_: 
+      It relies on helper applications to handle those archive formats 
+      (for example bzip2 for BZIP2 archives).
+      Supported formats:
+      7z (.7z), ACE (.ace), ALZIP (.alz), AR (.a), ARC (.arc), ARJ (.arj), 
+      BZIP2 (.bz2), CAB (.cab), compress (.Z), CPIO (.cpio), DEB (.deb), 
+      DMS (.dms), GZIP (.gz), LRZIP (.lrz), LZH (.lha, .lzh), LZIP (.lz), 
+      LZMA (.lzma), LZOP (.lzo), RPM (.rpm), RAR (.rar), RZIP (.rz), 
+      TAR (.tar), XZ (.xz), ZIP (.zip, .jar) and ZOO (.zoo)  
  
 Known problems:
  - Python 3 is not supported
@@ -47,7 +55,9 @@ Similar projects
  * `pyUnRAR2 <http://pypi.python.org/pypi/pyUnRAR2>`_: rar only
  * `pylzma <http://pypi.python.org/pypi/pylzma>`_: LZMA only
  * `easy-extract <http://pypi.python.org/pypi/easy-extract>`_: many formats, no simple interface for unpacking
-
+ * `python-archive <http://pypi.python.org/pypi/python-archive>`_: zip and tar only
+ * `pyarchive <http://pypi.python.org/pypi/pyarchive>`_
+ * `nested.tar.archives.extractor <http://pypi.python.org/pypi/nested.tar.archives.extractor>`_: tar only
 
 Installation
 ============
@@ -57,7 +67,7 @@ General
 
  * install setuptools_
  * install unpackers for patool_ (optional)
- * install patool_ (optional, easy_install does not work)
+ * patool_ is installed by setup script
  * install the program::
 
     # as root
@@ -72,7 +82,6 @@ Ubuntu
     sudo apt-get install python-setuptools
     sudo easy_install pyunpack
     #optional
-    sudo easy_install http://sourceforge.net/projects/patool/files/0.13/patool-0.13.tar.gz/download
     sudo apt-get install unzip unrar p7zip-full
 
 Uninstall
