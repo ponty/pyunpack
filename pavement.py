@@ -13,6 +13,7 @@ try:
     from paved.util import *
     from paved.docs import *
     from paved.pycheck import *
+    from paved.pkg import *
     from sphinxcontrib import paverutils
     ALL_TASKS_LOADED = True
 except ImportError, e:
@@ -47,14 +48,8 @@ classifiers = [
     "Programming Language :: Python",
     ]
 
-install_requires = [
-    'setuptools',
-    'patool', # optional
-    'easyprocess',
-    'entrypoint2',
-    'path.py',    
-    
-    ]
+install_requires = open("requirements.txt").read().split('\n')
+
 dependency_links = [
         'http://sourceforge.net/projects/patool/files/0.13/patool-0.13.tar.gz/download#egg=patool-0.13',
         ]
@@ -102,10 +97,18 @@ if ALL_TASKS_LOADED:
                                      ]
     
     options.paved.dist.manifest.include.remove('distribute_setup.py')
+    options.paved.dist.manifest.include.add('requirements.txt')
     
     
     @task
-    @needs('sloccount', 'html', 'pdf', 'sdist', 'nose')
+    @needs(
+           'clean',
+           'sloccount', 
+           'html', 
+           'pdf', 
+           'sdist', 
+           'nose',
+           )
     def alltest():
         'all tasks to check'
         pass
