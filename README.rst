@@ -65,13 +65,13 @@ Installation
 General
 --------
 
- * install setuptools_
+ * install pip_
  * install unpackers for patool_ (optional)
  * patool_ is installed by setup script
  * install the program::
 
     # as root
-    easy_install pyunpack
+    pip install pyunpack
     
 
 
@@ -79,15 +79,15 @@ Ubuntu
 ----------
 ::
 
-    sudo apt-get install python-setuptools
-    sudo easy_install pyunpack
+    sudo apt-get install python-pip
+    sudo pip install pyunpack
     #optional
     sudo apt-get install unzip unrar p7zip-full
 
 Uninstall
 ----------
 
-first install pip_::
+::
 
     # as root
     pip uninstall pyunpack
