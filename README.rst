@@ -8,7 +8,8 @@ Features:
  - unpack archive files without password
  - very simple interface
  - command line interface and library
- - backends: 
+ - supported python versions: 2.5, 2.6, 2.7
+ - back-ends: 
     * zipfile_: included in Python
     * patool_: 
       It relies on helper applications to handle those archive formats 

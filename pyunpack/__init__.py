@@ -5,7 +5,7 @@ import os
 import sys
 import zipfile
 
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 
 log = logging.getLogger(__name__)
 #log=logging
@@ -68,15 +68,21 @@ class Archive(object):
             
         if self.backend == 'auto':
             if is_zipfile:
-                self.extractall_zipfile(directory)
+                try:
+                    self.extractall_zipfile(directory)
+                except AttributeError:
+                    # py25
+                    self.extractall_patool(directory)                    
             elif check_patool():
                 self.extractall_patool(directory)
             else:
                 raise ValueError("no backend for archive file:" + str(self.filename))
+            
         if self.backend == 'zipfile':
             if not is_zipfile:
                 raise ValueError("file is not zip file:" + str(self.filename))
             self.extractall_zipfile(directory)
+            
         if self.backend == 'patool':
             if check_patool():
                 self.extractall_patool(directory)

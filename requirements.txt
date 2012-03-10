@@ -1,4 +1,3 @@
-setuptools
 patool
 easyprocess
 entrypoint2
