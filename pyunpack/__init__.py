@@ -76,7 +76,7 @@ class Archive(object):
             elif check_patool():
                 self.extractall_patool(directory)
             else:
-                raise ValueError("no backend for archive file:" + str(self.filename))
+                raise ValueError("no backend for archive file: %s (is patool installed?)" % str(self.filename))
             
         if self.backend == 'zipfile':
             if not is_zipfile:
