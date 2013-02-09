@@ -32,10 +32,6 @@ classifiers = [
 
 install_requires = open("requirements.txt").read().split('\n')
 
-dependency_links = [
-    'http://sourceforge.net/projects/patool/files/0.13/patool-0.13.tar.gz/download#egg=patool-0.13',
-]
-
 setup(
     name=NAME,
     version=VERSION,
@@ -52,6 +48,5 @@ setup(
     test_suite='nose.collector',
     zip_safe=False,
     install_requires=install_requires,
-    dependency_links=dependency_links,
     **extra
 )

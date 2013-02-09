@@ -8,7 +8,8 @@ Features:
  - unpack archive files without password
  - very simple interface
  - command line interface and library
- - supported python versions: 2.5, 2.6, 2.7
+ - supported python versions: 2.6, 2.7
+ - tested only on linux
  - back-ends: 
     * zipfile_: included in Python
     * patool_: 
@@ -21,19 +22,14 @@ Features:
       LZMA (.lzma), LZOP (.lzo), RPM (.rpm), RAR (.rar), RZIP (.rz), 
       TAR (.tar), XZ (.xz), ZIP (.zip, .jar) and ZOO (.zoo)  
  
-Known problems:
- - Python 3 is not supported
- - tested only on linux
 
 Background
 -----------
 
-Patool_ is very good at unpacking a lot of archive formats,
-but it can not be used as a python library.
-pyunpack is a workaround: patool_ is called using its command line interface.
+patool_ is called by pyunpack using its command line interface.
 If Patool_ is not installed then only zip format can be unpacked
 using the internal python zipfile_ library.
-Patool_ should be converted into a library in the future.
+
  
 Basic usage
 ============
@@ -68,7 +64,7 @@ General
 
  * install pip_
  * install unpackers for patool_ (optional)
- * patool_ is installed by setup script
+ * install patool_ (optional)
  * install the program::
 
     # as root
@@ -83,6 +79,8 @@ Ubuntu
     sudo apt-get install python-pip
     sudo pip install pyunpack
     #optional
+    sudo pip install http://downloads.sourceforge.net/project/patool/0.17/patool-0.17.tar.gz
+    sudo pip install entrypoint2 # for cli.py
     sudo apt-get install unzip unrar p7zip-full
 
 Uninstall
