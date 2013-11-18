@@ -36,10 +36,10 @@ class Archive(object):
         self.filename = path(filename).expand().abspath()
         self.backend = backend
 
-    def extractall_patool(self, directory):
+    def extractall_patool(self, directory, patool_path):
         log.debug("starting backend patool")
         p = Proc([
-                         'patool',
+                         patool_path,
                          'extract',
                          self.filename,
                          '--outdir=' + directory,
@@ -52,10 +52,11 @@ class Archive(object):
         log.debug("starting backend zipfile")
         zipfile.ZipFile(self.filename).extractall(directory)
 
-    def extractall(self, directory, auto_create_dir=False):
+    def extractall(self, directory, auto_create_dir=False, patool_path="patool"):
         '''
         :param directory: directory to extract to
         :param auto_create_dir: auto create directory
+        :param patool_path: the path to the patool backend
         '''
         log.debug("extracting %s into %s (backend=%s)" % (
             self.filename, directory, self.backend))
@@ -76,9 +77,9 @@ class Archive(object):
                     self.extractall_zipfile(directory)
                 except AttributeError:
                     # py25
-                    self.extractall_patool(directory)
+                    self.extractall_patool(directory, patool_path)
             elif check_patool():
-                self.extractall_patool(directory)
+                self.extractall_patool(directory, patool_path)
             else:
                 raise ValueError("no backend for archive file: %s (is patool installed?)" % str(self.filename))
 
@@ -89,6 +90,7 @@ class Archive(object):
 
         if self.backend == 'patool':
             if check_patool():
-                self.extractall_patool(directory)
+                self.extractall_patool(directory, patool_path)
             else:
                 raise ValueError("patool is not installed")
+
