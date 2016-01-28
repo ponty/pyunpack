@@ -4,12 +4,10 @@ import logging
 import os
 import sys
 import zipfile
+from pyunpack.about import __version__
 
-__version__ = '0.0.3'
 
 log = logging.getLogger(__name__)
-# log=logging
-
 log.debug('version=' + __version__)
 
 
