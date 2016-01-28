@@ -14,6 +14,11 @@ log.debug('version=' + __version__)
 class PatoolError(Exception):
     pass
 
+def fullpath(cmd):
+    for p in os.environ["PATH"].split(os.pathsep):
+        fullp = os.path.join(p, cmd)
+        if os.access(fullp, os.X_OK):
+            return fullp
 
 class Archive(object):
     '''
@@ -26,7 +31,10 @@ class Archive(object):
 
     def extractall_patool(self, directory, patool_path):
         log.debug("starting backend patool")
+        if not patool_path:
+            patool_path=fullpath('patool')
         p = Proc([
+                         sys.executable,
                          patool_path,
                          'extract',
                          self.filename,
@@ -40,7 +48,7 @@ class Archive(object):
         log.debug("starting backend zipfile")
         zipfile.ZipFile(self.filename).extractall(directory)
 
-    def extractall(self, directory, auto_create_dir=False, patool_path="patool"):
+    def extractall(self, directory, auto_create_dir=False, patool_path=None):
         '''
         :param directory: directory to extract to
         :param auto_create_dir: auto create directory
