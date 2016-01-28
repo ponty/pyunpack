@@ -1,23 +1,16 @@
-**pyunpack**
+========
+pyunpack
+========
 
-:Date: |today|
-:PDF: `pyunpack.pdf <pyunpack.pdf>`_
 
 
-Contents:
+About
+=====
 
-.. toctree::
-    :maxdepth: 2
 
-    readme
-    usage
-    help
-    api
-        
-Indices and tables
-==================
+.. include:: ../README.rst
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. include:: api.rst
+
+
 

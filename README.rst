@@ -10,7 +10,7 @@ Features:
  - unpack archive files without password
  - very simple interface
  - command line interface and library
- - supported python versions: 2.6, 2.7
+ - supported python versions: 2.7, 3.3, 3.4, 3.5
  - tested only on linux
  - back-ends: 
     * zipfile_: included in Python
@@ -33,8 +33,8 @@ If Patool_ is not installed then only zip format can be unpacked
 using the internal python zipfile_ library.
 
  
-Basic usage
-===========
+Usage
+=====
 
     >>> from pyunpack import Archive
     >>> Archive('a.zip').extractall('/path/to')
@@ -48,7 +48,7 @@ Similar projects
 ================
 
  * zipfile_: zip only, included in python
- * patool_: many formats, command line only
+ * patool_: many formats, command line and library, GPL
  * `python-archive <http://pypi.python.org/pypi/python-archive>`_: zip and tar only
  * `rarfile <http://pypi.python.org/pypi/rarfile/>`_: rar only
  * `pyUnRAR2 <http://pypi.python.org/pypi/pyUnRAR2>`_: rar only
@@ -81,8 +81,8 @@ Ubuntu
     sudo apt-get install python-pip
     sudo pip install pyunpack
     #optional
-    sudo pip install http://downloads.sourceforge.net/project/patool/0.17/patool-0.17.tar.gz
-    sudo pip install entrypoint2 # for cli.py
+    sudo pip install patool
+    sudo pip install entrypoint2
     sudo apt-get install unzip unrar p7zip-full
 
 Uninstall
@@ -94,7 +94,6 @@ Uninstall
     pip uninstall pyunpack
 
 
-.. _setuptools: http://peak.telecommunity.com/DevCenter/EasyInstall
 .. _pip: http://pip.openplans.org/
 .. _python: http://www.python.org/
 .. _patool: http://pypi.python.org/pypi/patool
