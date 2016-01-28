@@ -1,4 +1,4 @@
-from easyprocess import Proc
+from easyprocess import EasyProcess
 from path import Path
 import logging
 import os
@@ -33,7 +33,7 @@ class Archive(object):
         log.debug("starting backend patool")
         if not patool_path:
             patool_path=fullpath('patool')
-        p = Proc([
+        p = EasyProcess([
                          sys.executable,
                          patool_path,
                          'extract',
