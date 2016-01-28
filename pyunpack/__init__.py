@@ -69,11 +69,7 @@ class Archive(object):
 
         if self.backend == 'auto':
             if is_zipfile:
-                try:
-                    self.extractall_zipfile(directory)
-                except AttributeError:
-                    # py25
-                    self.extractall_patool(directory, patool_path)
+                self.extractall_zipfile(directory)
             else:
                 self.extractall_patool(directory, patool_path)
 
