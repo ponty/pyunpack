@@ -3,6 +3,8 @@ unpack archive files
 Links:
  * home: https://github.com/ponty/pyunpack
  * documentation: http://ponty.github.com/pyunpack
+
+|Travis| |Coveralls| |Latest Version| |Supported Python versions| |License| |Downloads| |Code Health| |Documentation|
   
 Features:
  - unpack archive files without password
@@ -24,7 +26,7 @@ Features:
  
 
 Background
------------
+----------
 
 patool_ is called by pyunpack using its command line interface.
 If Patool_ is not installed then only zip format can be unpacked
@@ -32,7 +34,7 @@ using the internal python zipfile_ library.
 
  
 Basic usage
-============
+===========
 
     >>> from pyunpack import Archive
     >>> Archive('a.zip').extractall('/path/to')
@@ -60,7 +62,7 @@ Installation
 ============
 
 General
---------
+-------
 
  * install pip_
  * install unpackers for patool_ (optional)
@@ -73,7 +75,7 @@ General
 
 
 Ubuntu
-----------
+------
 ::
 
     sudo apt-get install python-pip
@@ -84,7 +86,7 @@ Ubuntu
     sudo apt-get install unzip unrar p7zip-full
 
 Uninstall
-----------
+---------
 
 ::
 
@@ -97,3 +99,21 @@ Uninstall
 .. _python: http://www.python.org/
 .. _patool: http://pypi.python.org/pypi/patool
 .. _zipfile: http://docs.python.org/library/zipfile.html
+
+.. |Travis| image:: http://img.shields.io/travis/ponty/pyunpack.svg
+   :target: https://travis-ci.org/ponty/pyunpack/
+.. |Coveralls| image:: http://img.shields.io/coveralls/ponty/pyunpack/master.svg
+   :target: https://coveralls.io/r/ponty/pyunpack/
+.. |Latest Version| image:: https://img.shields.io/pypi/v/pyunpack.svg
+   :target: https://pypi.python.org/pypi/pyunpack/
+.. |Supported Python versions| image:: https://img.shields.io/pypi/pyversions/pyunpack.svg
+   :target: https://pypi.python.org/pypi/pyunpack/
+.. |License| image:: https://img.shields.io/pypi/l/pyunpack.svg
+   :target: https://pypi.python.org/pypi/pyunpack/
+.. |Downloads| image:: https://img.shields.io/pypi/dm/pyunpack.svg
+   :target: https://pypi.python.org/pypi/pyunpack/
+.. |Code Health| image:: https://landscape.io/github/ponty/pyunpack/master/landscape.svg?style=flat
+   :target: https://landscape.io/github/ponty/pyunpack/master
+.. |Documentation| image:: https://readthedocs.org/projects/pyscreenshot/badge/?version=latest
+   :target: http://pyunpack.readthedocs.org
+
