@@ -15,16 +15,6 @@ class PatoolError(Exception):
     pass
 
 
-def check_patool():
-    try:
-        import patoolib
-        ok = True
-    except ImportError:
-        ok = False
-        log.debug('patool was not found')
-    return ok
-
-
 class Archive(object):
     '''
     :param backend: ``auto``, ``patool`` or ``zipfile``
@@ -76,10 +66,8 @@ class Archive(object):
                 except AttributeError:
                     # py25
                     self.extractall_patool(directory, patool_path)
-            elif check_patool():
-                self.extractall_patool(directory, patool_path)
             else:
-                raise ValueError("no backend for archive file: %s (is patool installed?)" % str(self.filename))
+                self.extractall_patool(directory, patool_path)
 
         if self.backend == 'zipfile':
             if not is_zipfile:
@@ -87,8 +75,5 @@ class Archive(object):
             self.extractall_zipfile(directory)
 
         if self.backend == 'patool':
-            if check_patool():
-                self.extractall_patool(directory, patool_path)
-            else:
-                raise ValueError("patool is not installed")
+            self.extractall_patool(directory, patool_path)
 
