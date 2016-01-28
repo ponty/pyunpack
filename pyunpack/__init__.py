@@ -1,5 +1,5 @@
 from easyprocess import Proc
-from path import path
+from path import Path
 import logging
 import os
 import sys
@@ -26,7 +26,7 @@ class Archive(object):
     :param filename: path to archive file
     '''
     def __init__(self, filename, backend='auto'):
-        self.filename = path(filename).expand().abspath()
+        self.filename = Path(filename).expand().abspath()
         self.backend = backend
 
     def extractall_patool(self, directory, patool_path):
@@ -57,7 +57,7 @@ class Archive(object):
         log.debug("extracting %s into %s (backend=%s)" % (
             self.filename, directory, self.backend))
         is_zipfile = zipfile.is_zipfile(self.filename)
-        directory = path(directory).expand().abspath()
+        directory = Path(directory).expand().abspath()
         if not self.filename.exists():
             raise ValueError(
                 "archive file does not exist:" + str(self.filename))
