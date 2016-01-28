@@ -94,6 +94,28 @@ Uninstall
     pip uninstall pyunpack
 
 
+command line help
+=================
+
+::
+
+  #-- sh('python -m pyunpack.cli --help')--#
+  usage: cli.py [-h] [-b BACKEND] [-a] [--debug] filename directory
+
+  positional arguments:
+    filename              path to archive file
+    directory             directory to extract to
+
+  optional arguments:
+    -h, --help            show this help message and exit
+    -b BACKEND, --backend BACKEND
+                          auto, patool or zipfile
+    -a, --auto-create-dir
+                          auto create directory
+    --debug               set logging level to DEBUG
+  #-#
+
+
 .. _pip: http://pip.openplans.org/
 .. _python: http://www.python.org/
 .. _patool: http://pypi.python.org/pypi/patool
