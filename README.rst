@@ -2,7 +2,8 @@ unpack archive files
 
 Links:
  * home: https://github.com/ponty/pyunpack
- * documentation: http://ponty.github.com/pyunpack
+ * documentation: http://pyunpack.readthedocs.org
+ * PYPI: https://pypi.python.org/pypi/pyunpack
 
 |Travis| |Coveralls| |Latest Version| |Supported Python versions| |License| |Downloads| |Code Health| |Documentation|
   
@@ -11,7 +12,6 @@ Features:
  - very simple interface
  - command line interface and library
  - supported python versions: 2.7, 3.3, 3.4, 3.5
- - tested only on linux
  - back-ends: 
     * zipfile_: included in Python
     * patool_: 
