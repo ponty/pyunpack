@@ -1,7 +1,6 @@
 from easyprocess import EasyProcess
-from path import Path
 import logging
-import os
+import os.path
 import sys
 import zipfile
 from pyunpack.about import __version__
@@ -15,7 +14,15 @@ class PatoolError(Exception):
     pass
 
 
-def fullpath(cmd):
+def _fullpath(x):
+    x = os.path.expandvars(x)
+    x = os.path.expanduser(x)
+    x = os.path.normpath(x)
+    x = os.path.abspath(x)
+    return x
+
+
+def _exepath(cmd):
     for p in os.environ['PATH'].split(os.pathsep):
         fullp = os.path.join(p, cmd)
         if os.access(fullp, os.X_OK):
@@ -30,13 +37,13 @@ class Archive(object):
     '''
 
     def __init__(self, filename, backend='auto'):
-        self.filename = Path(filename).expand().abspath()
+        self.filename = _fullpath(filename)
         self.backend = backend
 
     def extractall_patool(self, directory, patool_path):
         log.debug('starting backend patool')
         if not patool_path:
-            patool_path = fullpath('patool')
+            patool_path = _exepath('patool')
         p = EasyProcess([
             sys.executable,
             patool_path,
@@ -61,13 +68,13 @@ class Archive(object):
         log.debug('extracting %s into %s (backend=%s)' % (
             self.filename, directory, self.backend))
         is_zipfile = zipfile.is_zipfile(self.filename)
-        directory = Path(directory).expand().abspath()
-        if not self.filename.exists():
+        directory = _fullpath(directory)
+        if not os.path.exists(self.filename):
             raise ValueError(
                 'archive file does not exist:' + str(self.filename))
-        if not directory.exists():
+        if not os.path.exists(directory):
             if auto_create_dir:
-                directory.makedirs()
+                os.makedirs(directory)
             else:
                 raise ValueError('directory does not exist:' + str(directory))
 

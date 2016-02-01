@@ -48,7 +48,7 @@ classifiers = [
     'Programming Language :: Python :: 3.5',
 ]
 
-install_requires = 'easyprocess path.py'.split()
+install_requires = 'easyprocess'
 
 setup(
     name=NAME,
