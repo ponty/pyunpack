@@ -4,3 +4,4 @@ coverage
 six
 entrypoint2
 patool
+path.py
