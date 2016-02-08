@@ -65,8 +65,7 @@ class Archive(object):
         :param auto_create_dir: auto create directory
         :param patool_path: the path to the patool backend
         '''
-        log.debug('extracting %s into %s (backend=%s)' % (
-            self.filename, directory, self.backend))
+        log.debug('extracting %s into %s (backend=%s)', self.filename, directory, self.backend)
         is_zipfile = zipfile.is_zipfile(self.filename)
         directory = _fullpath(directory)
         if not os.path.exists(self.filename):
