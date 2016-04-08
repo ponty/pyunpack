@@ -36,9 +36,10 @@ class Archive(object):
     :param filename: path to archive file
     '''
 
-    def __init__(self, filename, backend='auto'):
+    def __init__(self, filename, backend='auto', timeout=None):
         self.filename = _fullpath(filename)
         self.backend = backend
+        self.timeout = timeout
 
     def extractall_patool(self, directory, patool_path):
         log.debug('starting backend patool')
@@ -47,11 +48,14 @@ class Archive(object):
         p = EasyProcess([
             sys.executable,
             patool_path,
+            '--non-interactive',
             'extract',
             self.filename,
             '--outdir=' + directory,
             #                     '--verbose',
-        ]).call()
+        ]).call(timeout=self.timeout)
+        if p.timeout_happened:
+            raise PatoolError('patool timeout\n' + str(p.stdout) + '\n' + str(p.stderr))
         if p.return_code:
             raise PatoolError('patool can not unpack\n' + str(p.stderr))
 
