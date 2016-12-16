@@ -45,6 +45,8 @@ class Archive(object):
         log.debug('starting backend patool')
         if not patool_path:
             patool_path = _exepath('patool')
+        if not patool_path:
+            raise ValueError('patool not found! Please install patool!')            
         p = EasyProcess([
             sys.executable,
             patool_path,
