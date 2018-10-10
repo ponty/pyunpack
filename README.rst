@@ -5,7 +5,7 @@ Links:
  * documentation: http://pyunpack.readthedocs.org
  * PYPI: https://pypi.python.org/pypi/pyunpack
 
-|Travis| |Coveralls| |Latest Version| |Supported Python versions| |License| |Downloads| |Code Health| |Documentation|
+|Travis| |Coveralls| |Latest Version| |Supported Python versions| |License| |Code Health| |Documentation|
   
 Features:
  - unpack archive files without password
@@ -130,8 +130,6 @@ command line help
 .. |Supported Python versions| image:: https://img.shields.io/pypi/pyversions/pyunpack.svg
    :target: https://pypi.python.org/pypi/pyunpack/
 .. |License| image:: https://img.shields.io/pypi/l/pyunpack.svg
-   :target: https://pypi.python.org/pypi/pyunpack/
-.. |Downloads| image:: https://img.shields.io/pypi/dm/pyunpack.svg
    :target: https://pypi.python.org/pypi/pyunpack/
 .. |Code Health| image:: https://landscape.io/github/ponty/pyunpack/master/landscape.svg?style=flat
    :target: https://landscape.io/github/ponty/pyunpack/master
