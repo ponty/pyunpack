@@ -32,3 +32,5 @@ nosetests.xml
 
 sloccount.sc
 *.prefs
+
+*.log
