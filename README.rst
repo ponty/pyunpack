@@ -11,7 +11,7 @@ Features:
  - unpack archive files without password
  - very simple interface
  - command line interface and library
- - supported python versions: 2.7, 3.4, 3.5, 3.6
+ - supported python versions: 2.7, 3.6, 3.7, 3.8
  - back-ends: 
     * zipfile_: included in Python
     * patool_: 
