@@ -61,15 +61,13 @@ Similar projects
 Installation
 ============
 
-General
--------
-
- * install pip_
  * install unpackers for patool_ (optional)
- * install patool_ (optional)
+ * install patool_ (optional) 
+ 
+	pip install patool
+	
  * install the program::
 
-    # as root
     pip install pyunpack
     
 
@@ -78,20 +76,10 @@ Ubuntu
 ------
 ::
 
-    sudo apt-get install python-pip
-    sudo pip install pyunpack
     #optional
-    sudo pip install patool
-    sudo pip install entrypoint2
+    pip install patool
+    pip install entrypoint2
     sudo apt-get install unzip unrar p7zip-full
-
-Uninstall
----------
-
-::
-
-    # as root
-    pip uninstall pyunpack
 
 
 command line help
@@ -116,12 +104,10 @@ command line help
   #-#
 
 
-.. _pip: http://pip.openplans.org/
-.. _python: http://www.python.org/
 .. _patool: http://pypi.python.org/pypi/patool
 .. _zipfile: http://docs.python.org/library/zipfile.html
 
-.. |Travis| image:: http://img.shields.io/travis/ponty/pyunpack.svg
+.. |Travis| image:: https://travis-ci.org/ponty/pyunpack.svg?branch=master
    :target: https://travis-ci.org/ponty/pyunpack/
 .. |Coveralls| image:: http://img.shields.io/coveralls/ponty/pyunpack/master.svg
    :target: https://coveralls.io/r/ponty/pyunpack/
