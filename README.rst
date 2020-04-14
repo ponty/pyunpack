@@ -2,10 +2,9 @@ unpack archive files
 
 Links:
  * home: https://github.com/ponty/pyunpack
- * documentation: http://pyunpack.readthedocs.org
  * PYPI: https://pypi.python.org/pypi/pyunpack
 
-|Travis| |Coveralls| |Latest Version| |Supported Python versions| |License| |Code Health| |Documentation|
+|Travis| |License|
   
 Features:
  - unpack archive files without password
@@ -43,32 +42,17 @@ or on console::
 
     python -m pyunpack.cli a.zip /path/to
 
-
-Similar projects
-================
-
- * zipfile_: zip only, included in python
- * patool_: many formats, command line and library, GPL
- * `python-archive <http://pypi.python.org/pypi/python-archive>`_: zip and tar only
- * `rarfile <http://pypi.python.org/pypi/rarfile/>`_: rar only
- * `pyUnRAR2 <http://pypi.python.org/pypi/pyUnRAR2>`_: rar only
- * `pylzma <http://pypi.python.org/pypi/pylzma>`_: LZMA only
- * `easy-extract <http://pypi.python.org/pypi/easy-extract>`_: many formats, no simple interface for unpacking
- * `python-archive <http://pypi.python.org/pypi/python-archive>`_: zip and tar only
- * `pyarchive <http://pypi.python.org/pypi/pyarchive>`_
- * `nested.tar.archives.extractor <http://pypi.python.org/pypi/nested.tar.archives.extractor>`_: tar only
-
 Installation
 ============
 
  * install unpackers for patool_ (optional)
  * install patool_ (optional) 
  
-	pip install patool
+	pip3 install patool
 	
  * install the program::
 
-    pip install pyunpack
+    pip3 install pyunpack
     
 
 
@@ -109,16 +93,6 @@ command line help
 
 .. |Travis| image:: https://travis-ci.org/ponty/pyunpack.svg?branch=master
    :target: https://travis-ci.org/ponty/pyunpack/
-.. |Coveralls| image:: http://img.shields.io/coveralls/ponty/pyunpack/master.svg
-   :target: https://coveralls.io/r/ponty/pyunpack/
-.. |Latest Version| image:: https://img.shields.io/pypi/v/pyunpack.svg
-   :target: https://pypi.python.org/pypi/pyunpack/
-.. |Supported Python versions| image:: https://img.shields.io/pypi/pyversions/pyunpack.svg
-   :target: https://pypi.python.org/pypi/pyunpack/
 .. |License| image:: https://img.shields.io/pypi/l/pyunpack.svg
    :target: https://pypi.python.org/pypi/pyunpack/
-.. |Code Health| image:: https://landscape.io/github/ponty/pyunpack/master/landscape.svg?style=flat
-   :target: https://landscape.io/github/ponty/pyunpack/master
-.. |Documentation| image:: https://readthedocs.org/projects/pyscreenshot/badge/?version=latest
-   :target: http://pyunpack.readthedocs.org
 
