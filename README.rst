@@ -24,8 +24,8 @@ Features:
       TAR (.tar), XZ (.xz), ZIP (.zip, .jar) and ZOO (.zoo)  
  
 
-Background
-----------
+Functionality
+-------------
 
 patool_ is called by pyunpack using its command line interface.
 If Patool_ is not installed then only zip format can be unpacked
@@ -42,28 +42,13 @@ or on console::
 
     python -m pyunpack.cli a.zip /path/to
 
-Installation
-============
-
- * install unpackers for patool_ (optional)
- * install patool_ (optional) 
- 
-	pip3 install patool
-	
- * install the program::
-
-    pip3 install pyunpack
-    
-
-
-Ubuntu
-------
+Installation on Ubuntu
+======================
 ::
 
-    #optional
-    pip install patool
-    pip install entrypoint2
     sudo apt-get install unzip unrar p7zip-full
+    pip3 install patool
+    pip3 install pyunpack
 
 
 command line help
