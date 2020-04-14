@@ -41,7 +41,7 @@ setup(
     name=NAME,
     version=VERSION,
     description=DESCRIPTION,
-    long_description=open("README.rst", "r").read(),
+    # long_description=open("README.rst", "r").read(),
     classifiers=classifiers,
     keywords="unpack archive",
     author="ponty",
