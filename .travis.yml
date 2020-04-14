@@ -46,7 +46,5 @@ install:
  
 script:  
  - cd tests
- - nosetests -vv --with-coverage --cover-package=pyunpack .
+ - pytest -v .
  
-after_success:
- - coveralls

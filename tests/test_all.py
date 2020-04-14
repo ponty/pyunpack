@@ -1,15 +1,15 @@
 from easyprocess import EasyProcess
-from nose.tools import ok_, eq_, assert_raises
 from path import Path
 from pyunpack import Archive, PatoolError, cli
 import sys
 import tempfile
+import pytest
 
 
 def ok_file(d, f):
     full = d / "x.txt"
-    ok_(full.exists(), full)
-    eq_(full.text(), "123")
+    assert full.exists()
+    assert full.text() == "123"
 
 
 def tmpdir():
@@ -18,12 +18,10 @@ def tmpdir():
 
 
 def test():
-    assert_raises(
-        ValueError, lambda: Archive("blabla").extractall(tempfile.gettempdir())
-    )
-    assert_raises(
-        PatoolError, lambda: Archive(__file__).extractall(tempfile.gettempdir())
-    )
+    with pytest.raises(ValueError):
+        Archive("blabla").extractall(tempfile.gettempdir())
+    with pytest.raises(PatoolError):
+        Archive(__file__).extractall(tempfile.gettempdir())
 
 
 def create_zip():
@@ -38,7 +36,8 @@ def create_zip():
 def test2():
     x_zip = create_zip()
 
-    assert_raises(ValueError, lambda: Archive(x_zip).extractall("blabla"))
+    with pytest.raises(ValueError):
+        Archive(x_zip).extractall("blabla")
 
     d = tmpdir()
     Archive(x_zip, backend="patool").extractall(d)
@@ -66,9 +65,8 @@ def test_subdir():
     x_zip = create_zip()
 
     d = tmpdir() / "subdir"
-    assert_raises(
-        ValueError, lambda: Archive(x_zip).extractall(d, auto_create_dir=False)
-    )
+    with pytest.raises(ValueError):
+        Archive(x_zip).extractall(d, auto_create_dir=False)
 
     d = tmpdir() / "subdir"
     Archive(x_zip, backend="auto").extractall(d, auto_create_dir=True)
