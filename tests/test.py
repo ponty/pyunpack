@@ -18,8 +18,8 @@ def tmpdir():
 
 
 def test():
-    assert_raises(ValueError, lambda: Archive('blabla').extractall('/tmp'))
-    assert_raises(PatoolError, lambda: Archive(__file__).extractall('/tmp'))
+    assert_raises(ValueError, lambda: Archive('blabla').extractall(tempfile.gettempdir()))
+    assert_raises(PatoolError, lambda: Archive(__file__).extractall(tempfile.gettempdir()))
 
 
 def create_zip():
