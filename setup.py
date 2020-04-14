@@ -35,7 +35,7 @@ classifiers = [
     "Programming Language :: Python :: 3.8",
 ]
 
-install_requires = "easyprocess"
+install_requires = ["easyprocess", "entrypoint2"]
 
 setup(
     name=NAME,
