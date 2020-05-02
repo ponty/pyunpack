@@ -5,6 +5,10 @@ from setuptools import setup
 NAME = "pyunpack"
 URL = "https://github.com/ponty/pyunpack"
 DESCRIPTION = "unpack archive files"
+LONG_DESCRIPTION = """unpack archive files in Python
+
+home: https://github.com/ponty/pyunpack"""
+
 PACKAGES = [
     NAME,
     #             NAME + '.examples',
@@ -41,7 +45,7 @@ setup(
     name=NAME,
     version=VERSION,
     description=DESCRIPTION,
-    # long_description=open("README.rst", "r").read(),
+    long_description=LONG_DESCRIPTION,
     classifiers=classifiers,
     keywords="unpack archive",
     author="ponty",
