@@ -1,9 +1,10 @@
-from easyprocess import EasyProcess
 from path import Path
 from pyunpack import Archive, PatoolError, cli
 import sys
 import tempfile
 import pytest
+from shutil import make_archive
+import os
 
 
 def ok_file(d, f):
@@ -29,7 +30,16 @@ def create_zip():
     x_txt = d / "x.txt"
     x_txt.write_text("123")
     x_zip = d / "x.zip"
-    EasyProcess(["zip", "--no-dir-entries", x_zip, "x.txt"], cwd=d).call()
+
+    os.chdir(d)
+    make_archive(
+        "x",
+        "zip",  # the archive format - or tar, bztar, gztar
+        root_dir=None,  # root for archive - current working dir if None
+        base_dir=None,
+    )  # start archiving from here - cwd if None too
+
+    # EasyProcess(["zip", "--no-dir-entries", x_zip, "x.txt"], cwd=d).call()
     return x_zip
 
 

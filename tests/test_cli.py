@@ -22,6 +22,7 @@ python = sys.executable
 def test_help():
     cmd = [python, "-m", "pyunpack.cli", "--help"]
     h = EasyProcess(cmd).call().stdout.strip()
+    h = h.replace("\r", "")  # for win
     print(help)
     print(h)
     assert h == help
