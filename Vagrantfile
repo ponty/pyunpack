@@ -13,6 +13,7 @@ Vagrant.configure(2) do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = "ubuntu/bionic64"
+  #config.vm.box = "ubuntu/focal64"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -78,14 +79,10 @@ Vagrant.configure(2) do |config|
   sudo apt-get install -y python3-distutils
 
 # tools
-  sudo apt-get install -y mc python-pip zip
+  sudo apt-get install -y mc zip python3-pip
 
 # test dependencies
-  sudo pip install -r /vagrant/requirements-test.txt
-  
-# doc dependencies
-  sudo pip install -r /vagrant/requirements-doc.txt
-  
+  sudo pip3 install tox
   "
       config.vm.provision "shell", inline: $script
           
