@@ -1,6 +1,4 @@
-tox
 pytest
-coverage
 six
 patool
 path.py
