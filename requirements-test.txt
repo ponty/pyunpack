@@ -1,4 +1,3 @@
 pytest
-six
 patool
 path.py
