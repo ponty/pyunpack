@@ -1,6 +1,8 @@
-from entrypoint2 import entrypoint
-from pyunpack import Archive
 import logging
+
+from entrypoint2 import entrypoint
+
+from pyunpack import Archive
 
 log = logging.getLogger(__name__)
 # log=logging

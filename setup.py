@@ -1,6 +1,6 @@
-from setuptools import setup
 import os.path
-import sys
+
+from setuptools import setup
 
 NAME = "pyunpack"
 URL = "https://github.com/ponty/pyunpack"

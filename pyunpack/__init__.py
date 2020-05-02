@@ -1,10 +1,11 @@
-from easyprocess import EasyProcess
 import logging
 import os.path
 import sys
 import zipfile
-from pyunpack.about import __version__
 
+from easyprocess import EasyProcess
+
+from pyunpack.about import __version__
 
 log = logging.getLogger(__name__)
 log.debug("version=" + __version__)

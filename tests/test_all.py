@@ -1,10 +1,12 @@
-from path import Path
-from pyunpack import Archive, PatoolError, cli
+import os
 import sys
 import tempfile
-import pytest
 from shutil import make_archive
-import os
+
+import pytest
+from path import Path
+
+from pyunpack import Archive, PatoolError, cli
 
 
 def ok_file(d, f):
