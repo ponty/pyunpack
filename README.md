@@ -35,49 +35,59 @@ using the internal python [zipfile][2] library.
 Usage
 =====
 
-    $ echo hello > hello.txt
-    $ zip hello.zip hello.txt
-    $ rm hello.txt
-    $ python3
-    >>> from pyunpack import Archive
-    >>> Archive('hello.zip').extractall('.')
-    >>> open('hello.txt').read()
-    'hello\n'
+```console
+$ echo hello > hello.txt
+$ zip hello.zip hello.txt
+$ rm hello.txt
+$ python3
+```
+```pycon
+>>> from pyunpack import Archive
+>>> Archive('hello.zip').extractall('.')
+>>> open('hello.txt').read()
+'hello\n'
+```
 
-or on console:
+using command line interface:
 
-    $ echo hello > hello.txt
-    $ zip hello.zip hello.txt
-    $ rm hello.txt
-    $ python3 -m pyunpack.cli hello.zip .
-    $ cat hello.txt 
-    hello
+```console
+$ echo hello > hello.txt
+$ zip hello.zip hello.txt
+$ rm hello.txt
+$ python3 -m pyunpack.cli hello.zip .
+$ cat hello.txt
+hello
+```
 
 Installation on Ubuntu
 ======================
 
-    sudo apt-get install unzip unrar p7zip-full
-    pip3 install patool
-    pip3 install pyunpack
+```console
+$ sudo apt-get install unzip unrar p7zip-full
+$ pip3 install patool
+$ pip3 install pyunpack
+```
 
 
 command line help
 ==================
 
-    $ python3 -m pyunpack.cli --help
-    usage: cli.py [-h] [-b BACKEND] [-a] [--debug] filename directory
+```console
+$ python3 -m pyunpack.cli --help
+usage: cli.py [-h] [-b BACKEND] [-a] [--debug] filename directory
 
-    positional arguments:
-      filename              path to archive file
-      directory             directory to extract to
+positional arguments:
+  filename              path to archive file
+  directory             directory to extract to
 
-    optional arguments:
-      -h, --help            show this help message and exit
-      -b BACKEND, --backend BACKEND
-                            auto, patool or zipfile
-      -a, --auto-create-dir
-                            auto create directory
-      --debug               set logging level to DEBUG
+optional arguments:
+  -h, --help            show this help message and exit
+  -b BACKEND, --backend BACKEND
+                        auto, patool or zipfile
+  -a, --auto-create-dir
+                        auto create directory
+  --debug               set logging level to DEBUG
+```
 
 
 [1]: http://pypi.python.org/pypi/patool
