@@ -64,8 +64,8 @@ Installation on Ubuntu
 
 ```console
 $ sudo apt-get install unzip unrar p7zip-full
-$ pip3 install patool
-$ pip3 install pyunpack
+$ python3 -m pip install patool
+$ python3 -m pip install pyunpack
 ```
 
 
