@@ -3,22 +3,23 @@ import os.path
 from setuptools import setup
 
 NAME = "pyunpack"
-URL = "https://github.com/ponty/pyunpack"
-DESCRIPTION = "unpack archive files"
-LONG_DESCRIPTION = """unpack archive files in Python
-
-home: https://github.com/ponty/pyunpack"""
-
-PACKAGES = [
-    NAME,
-    #             NAME + '.examples',
-]
 
 # get __version__
 __version__ = None
 exec(open(os.path.join(NAME, "about.py")).read())
 VERSION = __version__
 
+URL = "https://github.com/ponty/pyunpack"
+DESCRIPTION = "unpack archive files"
+LONG_DESCRIPTION = """unpack archive files in Python
+
+home: https://github.com/ponty/pyunpack/tree/"""
+LONG_DESCRIPTION += VERSION
+
+PACKAGES = [
+    NAME,
+    #             NAME + '.examples',
+]
 
 # extra = {}
 # if sys.version_info >= (3,):
