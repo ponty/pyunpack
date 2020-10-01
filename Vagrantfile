@@ -83,6 +83,10 @@ Vagrant.configure(2) do |config|
 
 # test dependencies
   sudo pip3 install tox
+
+# doc dependencies
+  sudo apt-get install -y npm
+  sudo npm install -g npx
   "
       config.vm.provision "shell", inline: $script
 
