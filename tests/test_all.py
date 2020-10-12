@@ -4,7 +4,6 @@ import tempfile
 from shutil import make_archive
 
 import pytest
-from path import Path
 
 from pyunpack import Archive, PatoolError, cli
 
@@ -15,16 +14,18 @@ if sys.platform.startswith("linux"):
     if not PY2:
         formats += ["xztar"]
 
+join = os.path.join
+
 
 def ok_file(d, f):
-    full = d / "x.txt"
-    assert full.exists()
-    assert full.text() == "123"
+    full = join(d, "x.txt")
+    assert os.path.exists(full)
+    assert open(full).read() == "123"
 
 
 def tmpdir():
     d = tempfile.mkdtemp(prefix="pyunpack_test_")
-    return Path(d)
+    return d
 
 
 def test():
@@ -36,8 +37,8 @@ def test():
 
 def create_arc(format):
     d = tmpdir()
-    x_txt = d / "x.txt"
-    x_txt.write_text("123")
+    x_txt = join(d, "x.txt")
+    open(x_txt, "w").write("123")
     # x_zip = d / "x.zip"
 
     os.chdir(d)
@@ -86,10 +87,10 @@ def test_subdir():
     for f in formats:
         x_zip = create_arc(f)
 
-        d = tmpdir() / "subdir"
+        d = join(tmpdir(), "subdir")
         with pytest.raises(ValueError):
             Archive(x_zip).extractall(d, auto_create_dir=False)
 
-        d = tmpdir() / "subdir"
+        d = join(tmpdir(), "subdir")
         Archive(x_zip, backend="auto").extractall(d, auto_create_dir=True)
         ok_file(d, "x.txt")
