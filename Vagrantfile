@@ -90,6 +90,7 @@ Vagrant.configure(2) do |config|
 
 # test dependencies
   sudo pip3 install tox
+  sudo apt-get install -y p7zip-full
 
 # doc dependencies
   sudo apt-get install -y npm
