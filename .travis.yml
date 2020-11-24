@@ -39,6 +39,10 @@ addons:
   apt:
     packages: 
       - p7zip-full 
+  homebrew:
+    # update: true # https://travis-ci.community/t/macos-build-fails-because-of-homebrew-bundle-unknown-command/7296/10
+    packages:
+      - p7zip
 
 install:
  - if [ ${TRAVIS_PYTHON_VERSION:0:1} == "2" ]; then PYTHON=python; else PYTHON=python3; fi
