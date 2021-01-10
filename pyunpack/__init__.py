@@ -2,6 +2,7 @@ import logging
 import os.path
 import sys
 import zipfile
+from typing import Optional
 
 from easyprocess import EasyProcess
 
@@ -15,7 +16,7 @@ class PatoolError(Exception):
     pass
 
 
-def _fullpath(x):
+def _fullpath(x: str) -> str:
     x = os.path.expandvars(x)
     x = os.path.expanduser(x)
     x = os.path.normpath(x)
@@ -23,26 +24,28 @@ def _fullpath(x):
     return x
 
 
-def _exepath(cmd):
+def _exepath(cmd: str) -> Optional[str]:
     for p in os.environ["PATH"].split(os.pathsep):
         fullp = os.path.join(p, cmd)
         if os.access(fullp, os.X_OK):
             return fullp
+    return None
 
 
 class Archive(object):
-
     """
     :param backend: ``auto``, ``patool`` or ``zipfile``
     :param filename: path to archive file
     """
 
-    def __init__(self, filename, backend="auto", timeout=None):
+    def __init__(
+        self, filename: str, backend: str = "auto", timeout: Optional[float] = None
+    ):
         self.filename = _fullpath(filename)
         self.backend = backend
         self.timeout = timeout
 
-    def extractall_patool(self, directory, patool_path):
+    def extractall_patool(self, directory: str, patool_path: Optional[str]) -> None:
         log.debug("starting backend patool")
         if not patool_path:
             patool_path = _exepath("patool")
@@ -64,11 +67,16 @@ class Archive(object):
         if p.return_code:
             raise PatoolError("patool can not unpack\n" + str(p.stderr))
 
-    def extractall_zipfile(self, directory):
+    def extractall_zipfile(self, directory: str) -> None:
         log.debug("starting backend zipfile")
         zipfile.ZipFile(self.filename).extractall(directory)
 
-    def extractall(self, directory, auto_create_dir=False, patool_path=None):
+    def extractall(
+        self,
+        directory: str,
+        auto_create_dir: bool = False,
+        patool_path: Optional[str] = None,
+    ) -> None:
         """
         :param directory: directory to extract to
         :param auto_create_dir: auto create directory
