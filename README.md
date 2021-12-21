@@ -4,7 +4,7 @@ Links:
  * home: https://github.com/ponty/pyunpack
  * PYPI: https://pypi.python.org/pypi/pyunpack
 
-[![Build Status](https://travis-ci.org/ponty/pyunpack.svg?branch=master)](https://travis-ci.org/ponty/pyunpack)
+![workflow](https://github.com/ponty/pyunpack/actions/workflows/main.yml/badge.svg)
 
 Features:
  - unpack archive files without password
