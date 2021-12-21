@@ -10,7 +10,7 @@ Features:
  - unpack archive files without password
  - very simple interface
  - command line interface and library
- - supported python versions: 3.7, 3.8, 3.9
+ - supported python versions: 3.7, 3.8, 3.9, 3.10
  - back-ends: 
     * [zipfile][2]: included in Python
     * [patool][1]: 
