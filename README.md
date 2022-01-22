@@ -82,7 +82,7 @@ positional arguments:
   filename              path to archive file
   directory             directory to extract to
 
-optional arguments:
+options:
   -h, --help            show this help message and exit
   -b BACKEND, --backend BACKEND
                         auto, patool or zipfile
