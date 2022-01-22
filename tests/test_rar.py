@@ -19,20 +19,20 @@ def tmpdir():
 
 
 def test_rar():
-    cab = join(DIR, "test.rar")
+    f = join(DIR, "test.rar")
 
     d = tmpdir()
-    Archive(cab, backend="patool").extractall(d)
+    Archive(f, backend="patool").extractall(d)
     ok_file(d)
 
     d = tmpdir()
-    Archive(cab).extractall(d)
+    Archive(f).extractall(d)
     ok_file(d)
 
     d = tmpdir()
-    Archive(cab, backend="auto").extractall(d)
+    Archive(f, backend="auto").extractall(d)
     ok_file(d)
 
     d = tmpdir()
-    cli.extractall(cab, d)
+    cli.extractall(f, d)
     ok_file(d)

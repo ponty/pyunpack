@@ -14,8 +14,8 @@ def tmpdir():
 
 
 def test_rarpw():
-    cab = join(DIR, "testpw.rar")
+    f = join(DIR, "testpw.rar")
 
     d = tmpdir()
     with pytest.raises(PatoolError):
-        cli.extractall(cab, d)
+        cli.extractall(f, d)
