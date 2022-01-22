@@ -20,7 +20,7 @@ sudo apt-get install -y mc zip python3-pip
 
 # test dependencies
 sudo pip3 install tox
-sudo apt-get install -y p7zip-full
+sudo apt-get install -y p7zip-full unrar
 
 # doc dependencies
 sudo apt-get install -y npm
