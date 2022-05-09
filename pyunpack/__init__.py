@@ -39,11 +39,12 @@ class Archive(object):
     """
 
     def __init__(
-        self, filename: str, backend: str = "auto", timeout: Optional[float] = None
+        self, filename: str, backend: str = "auto", timeout: Optional[float] = None, password: Optional[str] = None
     ):
         self.filename = _fullpath(filename)
         self.backend = backend
         self.timeout = timeout
+        self.password = password
 
     def extractall_patool(self, directory: str, patool_path: Optional[str]) -> None:
         log.debug("starting backend patool")
@@ -51,17 +52,18 @@ class Archive(object):
             patool_path = _exepath("patool")
         if not patool_path:
             raise ValueError("patool not found! Please install patool!")
-        p = EasyProcess(
-            [
-                sys.executable,
-                patool_path,
-                "--non-interactive",
-                "extract",
-                self.filename,
-                "--outdir=" + directory,
-                #                     '--verbose',
-            ]
-        ).call(timeout=self.timeout)
+        patool_cmd = [
+            sys.executable,
+            patool_path,
+            "--non-interactive",
+            "extract",
+            self.filename,
+            "--outdir=" + directory,
+            #                     '--verbose',
+        ]
+        if self.password is not None:
+            patool_cmd.extend(["--password", str(self.password)])
+        p = EasyProcess(patool_cmd).call(timeout=self.timeout)
         if p.timeout_happened:
             raise PatoolError("patool timeout\n" + str(p.stdout) + "\n" + str(p.stderr))
         if p.return_code:
@@ -69,7 +71,10 @@ class Archive(object):
 
     def extractall_zipfile(self, directory: str) -> None:
         log.debug("starting backend zipfile")
-        zipfile.ZipFile(self.filename).extractall(directory)
+        if self.password is not None:
+            zipfile.ZipFile(self.filename).extractall(directory, pwd=str(self.password).encode("utf-8"))
+        else:
+            zipfile.ZipFile(self.filename).extractall(directory)
 
     def extractall(
         self,
