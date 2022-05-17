@@ -1,4 +1,4 @@
 pytest
-patool
 mypy
 flake8
+https://github.com/wummel/patool/archive/refs/heads/master.zip

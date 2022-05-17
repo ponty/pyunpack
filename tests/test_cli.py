@@ -3,7 +3,8 @@ import sys
 from easyprocess import EasyProcess
 
 help_txt = """
-usage: cli.py [-h] [-b BACKEND] [-a] [--debug] filename directory
+usage: cli.py [-h] [-b BACKEND] [-p PASSWORD] [-a] [--debug]
+              filename directory
 
 positional arguments:
   filename              path to archive file
@@ -13,6 +14,7 @@ optional arguments:
   -h, --help            show this help message and exit
   -b BACKEND, --backend BACKEND
                         auto, patool or zipfile
+  -p PASSWORD, --password PASSWORD
   -a, --auto-create-dir
                         auto create directory
   --debug               set logging level to DEBUG

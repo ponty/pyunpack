@@ -7,7 +7,8 @@ Links:
 ![workflow](https://github.com/ponty/pyunpack/actions/workflows/main.yml/badge.svg)
 
 Features:
- - unpack archive files without password
+ - unpack archive files
+ - support passwords
  - very simple interface
  - command line interface and library
  - supported python versions: 3.7, 3.8, 3.9, 3.10
@@ -65,8 +66,14 @@ Installation on Ubuntu
 
 ```console
 $ sudo apt-get install unzip unrar p7zip-full
-$ python3 -m pip install patool
 $ python3 -m pip install pyunpack
+```
+
+Currently (2022) Patool latest pip release is from 2016 (https://pypi.org/project/patool/#history), 
+so it is recommended to install it from github until it is not updated.
+
+```console
+$ python3 -m pip install https://github.com/wummel/patool/archive/refs/heads/master.zip
 ```
 
 
@@ -76,7 +83,8 @@ command line help
 <!-- embedme doc/gen/python3_-m_pyunpack.cli_--help.txt -->
 ```console
 $ python3 -m pyunpack.cli --help
-usage: cli.py [-h] [-b BACKEND] [-a] [--debug] filename directory
+usage: cli.py [-h] [-b BACKEND] [-p PASSWORD] [-a] [--debug]
+              filename directory
 
 positional arguments:
   filename              path to archive file
@@ -86,6 +94,7 @@ options:
   -h, --help            show this help message and exit
   -b BACKEND, --backend BACKEND
                         auto, patool or zipfile
+  -p PASSWORD, --password PASSWORD
   -a, --auto-create-dir
                         auto create directory
   --debug               set logging level to DEBUG
