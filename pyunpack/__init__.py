@@ -39,7 +39,11 @@ class Archive(object):
     """
 
     def __init__(
-        self, filename: str, backend: str = "auto", timeout: Optional[float] = None, password: Optional[str] = None
+        self,
+        filename: str,
+        backend: str = "auto",
+        timeout: Optional[float] = None,
+        password: Optional[str] = None,
     ):
         self.filename = _fullpath(filename)
         self.backend = backend
@@ -72,7 +76,9 @@ class Archive(object):
     def extractall_zipfile(self, directory: str) -> None:
         log.debug("starting backend zipfile")
         if self.password is not None:
-            zipfile.ZipFile(self.filename).extractall(directory, pwd=str(self.password).encode("utf-8"))
+            zipfile.ZipFile(self.filename).extractall(
+                directory, pwd=str(self.password).encode("utf-8")
+            )
         else:
             zipfile.ZipFile(self.filename).extractall(directory)
 
