@@ -7,12 +7,9 @@ import pytest
 
 from pyunpack import Archive, PatoolError, cli
 
-PY2 = sys.version_info[0] == 2
 formats = ["zip"]
 if sys.platform.startswith("linux"):
-    formats += ["tar", "gztar", "bztar"]
-    if not PY2:
-        formats += ["xztar"]
+    formats += ["tar", "gztar", "bztar", "xztar"]
 
 join = os.path.join
 
