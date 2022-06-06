@@ -18,6 +18,7 @@ jobs:
         os: 
           - "ubuntu-18.04"
           - "ubuntu-20.04"
+          - "ubuntu-22.04"
           - "macos-10.15"
           - "macos-11"
           - "windows-2019"
@@ -28,6 +29,7 @@ jobs:
           - "3.8"
           - "3.9"
           - "3.10"
+          - "3.11-dev"
 
     steps:
     - uses: actions/checkout@v2

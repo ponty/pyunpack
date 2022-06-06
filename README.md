@@ -11,7 +11,7 @@ Features:
  - support passwords
  - very simple interface
  - command line interface and library
- - supported python versions: 3.7, 3.8, 3.9, 3.10
+ - supported python versions: 3.7, 3.8, 3.9, 3.10, 3.11
  - tested platforms: Linux, macOS, Windows
  - back-ends: 
     * [zipfile][2]: included in Python
