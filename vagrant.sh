@@ -29,4 +29,4 @@ sudo apt-get install -y p7zip-full unrar
 
 # doc dependencies
 sudo apt-get install -y npm
-sudo npm install -g npx
+sudo npm install --global embedme
