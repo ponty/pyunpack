@@ -71,6 +71,7 @@ $ python3 -m pip install pyunpack
 
 Currently (2022) Patool latest pip release is from 2016 (https://pypi.org/project/patool/#history), 
 so it is recommended to install it from github until it is not updated.
+Password support was added in [2020](https://github.com/wummel/patool/commit/1d3e8e2c893b077f05d054d5cc3fba20adfa627a)
 
 ```console
 $ python3 -m pip install https://github.com/wummel/patool/archive/refs/heads/master.zip
