@@ -3,8 +3,7 @@ import sys
 from easyprocess import EasyProcess
 
 help_txt = """
-usage: cli.py [-h] [-b BACKEND] [-p PASSWORD] [-a] [--debug]
-              filename directory
+usage: cli.py [-h] [-b BACKEND] [-p PASSWORD] [-a] [--debug] filename directory
 
 positional arguments:
   filename              path to archive file

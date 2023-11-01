@@ -84,8 +84,7 @@ command line help
 <!-- embedme doc/gen/python3_-m_pyunpack.cli_--help.txt -->
 ```console
 $ python3 -m pyunpack.cli --help
-usage: cli.py [-h] [-b BACKEND] [-p PASSWORD] [-a] [--debug]
-              filename directory
+usage: cli.py [-h] [-b BACKEND] [-p PASSWORD] [-a] [--debug] filename directory
 
 positional arguments:
   filename              path to archive file
