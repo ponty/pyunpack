@@ -29,6 +29,9 @@ def _exepath(cmd: str) -> Optional[str]:
         fullp = os.path.join(p, cmd)
         if os.access(fullp, os.X_OK):
             return fullp
+        # for Windows
+        if os.access(fullp + ".exe", os.X_OK):
+            return fullp + ".exe"
     return None
 
 
